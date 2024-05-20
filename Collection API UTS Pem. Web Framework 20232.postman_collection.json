@@ -1,0 +1,1011 @@
+{
+	"info": {
+		"_postman_id": "33fe8f90-63d3-4d57-adeb-c68a30c14c60",
+		"name": "Collection API UTS Pem. Web Framework 20232",
+		"description": "Collection ini digunakan mahasiswa untuk testing API yang akan mahasiswa buat untuk pengerjaan soal UTS (**jangan di otak-atik field body nya**).\n\nKami sebagai dosen pengampu matakuliah akan menggunakan collection API ini untuk memudahkan proses penilaian, sehingga mahasiswa bisa mengetahui berapa nilai UTS yang didapat hanya dengan melakukan pemeriksaan kesesuaian antara API yang dibuat dengan request-response dari collection API ini. Untuk memudahkan penggunaaan collection API serta **SYARAT NILAI** ini ikuti aturan-aturan berikut:\n\n1. **WAJIB HOSTING**, berbayar atau tidak dipersilahkan asalkan pada saat penilaian API dapat berjalan dengan baik. Kegagalan request-response API karena permasalahan hosting diluar tanggung jawab dosen pengampu dan sudah dipastikan dapat nilai 0.\n2. **WAJIB DOMAIN**, boleh menggunakan sub-domain sehingga bisa membeli domain secara kolektif.\n3. Pada collection terdapat beberapa simbol seperti berikut, **yang mana simbol ini harus mahasiswa ganti sesuai dengan API yang mahasiswa buat**:\n    1. **{{baseUrl}}** : nama domain boleh menggunakan http atau https\n    2. **{{jwtToken}}** : token JWT untuk otentikasi dan otorisasi (segmentasi role admin dan user)\n    3. **{{id}}** : id untuk melakukan edit ataupun delete, id: 1, 2, 3, dst\n    4. \"isi kan bla bla bla\" : isi kan inputan sesuai dengan seharusnya (boleh dimodifikasi inputannya untuk cek validasi inputan)\n4. **WAJIB GUNAKAN VALIDASI INPUTAN**\n5. **WAJIB LARAVEL**\n    \n\n**Apa yang harus saya penuhi untuk dapat nilai UTS?**\n\n1. Pengumpulan dan presensi wajib di BOC (ketentuan fakultas tidak bisa kompromi)\n2. Tidak melanggar aturan-aturan diatas\n3. Pengumpulan UTS berupa **link source code project UTS di github/gitlab/bitbucket (public bukan hasil kompresi seperti zip/rar), dan alamat domain**\n4. Melebihi batas waktu pengumpulan dianggap tidak mengikuti UTS\n    \n\n> Merugilah dia yang mencontek dan/atau memberi contekan kepada orang lain. Karena sesungguhnya dia telah membodohi dirinya sendiri serta orang lain.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33666707"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "read",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE2MjE4Mzc0LCJleHAiOjE3MTYyMjE5NzR9.c4KNkPdr3YOLgQxa7hQseJeQQgIbmM5JqliIF3y_6AI",
+								"uuid": "95ab52d8-2f9c-4b67-92d3-65ed32f840f3"
+							}
+						],
+						"url": {
+							"raw": "https://deviapriyanti.sipelantis.com/api/categories",
+							"protocol": "https",
+							"host": [
+								"deviapriyanti",
+								"sipelantis",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "melihat semua kategori"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwtToken}}",
+								"type": "text",
+								"uuid": "f248d112-16c7-4223-bcc1-f500dae98e5d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"isi kan <name> <categories>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "membuat kategori"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE2MjE4Mzc0LCJleHAiOjE3MTYyMjE5NzR9.c4KNkPdr3YOLgQxa7hQseJeQQgIbmM5JqliIF3y_6AI",
+								"uuid": "61857c44-ebb4-4917-bfc7-2c09566bfa37"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Makanan Kaleng\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://deviapriyanti.sipelantis.com/api/categories/3",
+							"protocol": "https",
+							"host": [
+								"deviapriyanti",
+								"sipelantis",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories",
+								"3"
+							]
+						},
+						"description": "menyunting kategori sesuai id yang dipilih"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text",
+								"uuid": "f2ad89bc-2202-4b42-bc73-1788af3bd928"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "7808125d-efe0-47ec-8fc0-531a8920c60f"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "268f7f02-67f3-4088-b266-fadeb4d47138"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text",
+								"uuid": "1f0919bd-a71b-4de0-b7be-5b8e4550e2b2"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text",
+								"uuid": "329866f8-c062-4741-a696-ad81e519adfb"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text",
+								"uuid": "f4813f3a-3462-45c3-87bc-ed9242ba00c0"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text",
+								"uuid": "fd093237-4850-492a-8453-cd8e8d51d707"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE2MjE4Mzc0LCJleHAiOjE3MTYyMjE5NzR9.c4KNkPdr3YOLgQxa7hQseJeQQgIbmM5JqliIF3y_6AI",
+								"type": "text",
+								"uuid": "e64ab3d2-8c9f-4556-9b62-ddd7a966afba",
+								"id": 0
+							}
+						],
+						"url": {
+							"raw": "https://deviapriyanti.sipelantis.com/api/categories/5",
+							"protocol": "https",
+							"host": [
+								"deviapriyanti",
+								"sipelantis",
+								"com"
+							],
+							"path": [
+								"api",
+								"categories",
+								"5"
+							]
+						},
+						"description": "menghapus kategori sesuai dengan id yang dipilih"
+					},
+					"response": []
+				}
+			],
+			"description": "kelola kategori produk"
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "read",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text",
+								"uuid": "c263f208-cf55-4326-ae85-da20433679f5"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "e7b798a2-288d-43f0-86d3-fdb4a88b9d4c"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "9dc6b214-7932-4dee-a68c-97d81987bd76"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text",
+								"uuid": "d34e7231-2ddd-4000-aa45-ed201a57aace"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text",
+								"uuid": "8d5c88d9-4c89-4192-b13e-3ab4aa56ec8f"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text",
+								"uuid": "b40fa8af-4440-41b1-8bc6-ed934a22a142"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text",
+								"uuid": "81e345f3-ca21-48ab-87e5-27f64d585343"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE2MjE4Mzc0LCJleHAiOjE3MTYyMjE5NzR9.c4KNkPdr3YOLgQxa7hQseJeQQgIbmM5JqliIF3y_6AI",
+								"type": "text",
+								"uuid": "08eaa73e-6b5e-4079-81cf-df4cb8764d37",
+								"id": 0
+							}
+						],
+						"url": {
+							"raw": "https://deviapriyanti.sipelantis.com/api/products",
+							"protocol": "https",
+							"host": [
+								"deviapriyanti",
+								"sipelantis",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "melihat semua data produk"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text",
+								"uuid": "9651154f-1332-4d03-b0b5-8e5b6e77fb52"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "32395198-ac6c-47cf-9e0f-11d4c1db2fd6"
+							},
+							{
+								"name": "content-type",
+								"sortOrder": 4,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Type header is added to help the server identify the media type of the request body that is present in this request.\n\nUse the request body tab to control the value or to remove this header.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Type",
+								"value": "multipart/form-data; boundary=<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "7debc4d3-9c82-4347-94e2-e9fb6e0fca3b"
+							},
+							{
+								"name": "content-length",
+								"sortOrder": 5,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Length header was added to indicate to the server the size of the request body that is added to this request. Server uses this value to parse the request body accurately.\n\nYou can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "bc27b3a3-9c46-4855-95f7-ebb51de9fb23"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "56ddbc45-c861-4e73-9f70-11ce2386a8e2"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text",
+								"uuid": "1dc71e7c-e2bc-4ae3-98e6-c255395c1e4f"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text",
+								"uuid": "4e568764-1949-4d1d-854e-754dd688a149"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text",
+								"uuid": "22bf0840-432d-4642-95b8-2af30a3dcd9a"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text",
+								"uuid": "98dbdb5c-028c-43e6-a7ed-5e2af1dfb9cf"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE2MjE4Mzc0LCJleHAiOjE3MTYyMjE5NzR9.c4KNkPdr3YOLgQxa7hQseJeQQgIbmM5JqliIF3y_6AI",
+								"type": "text",
+								"uuid": "bc33e649-b6b6-4ea6-b4bc-dc35e9d95bd2",
+								"id": 0
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "susu",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "susu sapi",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "Minuman",
+									"type": "text"
+								},
+								{
+									"key": "expired_at",
+									"value": "2030-02-10",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "upload gambar produk",
+									"type": "file",
+									"src": "C:\\Users\\apriy\\OneDrive\\Gambar\\Screenshots\\kopi_susu.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://deviapriyanti.sipelantis.com/api/products",
+							"protocol": "https",
+							"host": [
+								"deviapriyanti",
+								"sipelantis",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "membuat data produk baru"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text",
+								"uuid": "3c9b6552-c98b-4c22-bf21-c7cf4e576f5b"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "2de5009c-f34b-4d23-aaf8-81d324a994b3"
+							},
+							{
+								"name": "content-type",
+								"sortOrder": 4,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Type header is added to help the server identify the media type of the request body that is present in this request.\n\nUse the request body tab to control the value or to remove this header.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Type",
+								"value": "application/json",
+								"system": true,
+								"type": "text",
+								"uuid": "046a7c9e-f2d1-481d-b35e-2b59c739c2d5"
+							},
+							{
+								"name": "content-length",
+								"sortOrder": 5,
+								"infoTitle": "This header was automatically added",
+								"info": "The Content-Length header was added to indicate to the server the size of the request body that is added to this request. Server uses this value to parse the request body accurately.\n\nYou can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to body",
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "9f504e6f-6a7b-41fe-9f7e-2dfa6666dcdd"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "01c2db4d-774d-4e8e-be92-2339ff23ae44"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text",
+								"uuid": "d5d01624-999e-4be8-a8b0-41563d277f82"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text",
+								"uuid": "6d1d0f50-f865-4d1b-879b-570b2bc7e39f"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text",
+								"uuid": "bd54a594-a7be-4240-9a07-bbeddfcf8b77"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text",
+								"uuid": "b39d23a7-e54f-4d4f-b934-df821de372fa"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE2MjE4Mzc0LCJleHAiOjE3MTYyMjE5NzR9.c4KNkPdr3YOLgQxa7hQseJeQQgIbmM5JqliIF3y_6AI",
+								"type": "text",
+								"uuid": "966a2c85-3a04-487d-a292-fd72b7bcdba3",
+								"id": 0
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "susu kambing",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "bagus",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "90000",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "Minuman",
+									"type": "text"
+								},
+								{
+									"key": "expired_at",
+									"value": "2034-09-05",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "upload gambar produk",
+									"type": "file",
+									"src": "C:\\Users\\apriy\\OneDrive\\Gambar\\Screenshots\\kopi_susu.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://deviapriyanti.sipelantis.com/api/products/5",
+							"protocol": "https",
+							"host": [
+								"deviapriyanti",
+								"sipelantis",
+								"com"
+							],
+							"path": [
+								"api",
+								"products",
+								"5"
+							]
+						},
+						"description": "menyunting data produk sesuai dengan id yang dipilih"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"name": "cache-control",
+								"sortOrder": 2,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added \"Cache-Control: no-cache\" as a precautionary measure to prevent the server from returning stale response when one makes repeated requests.\n\nYou can remove this header in the app settings or enter a new one with a different value.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"system": true,
+								"type": "text",
+								"uuid": "1a4bfb30-8627-40da-86e5-c18be390da8b"
+							},
+							{
+								"name": "postman-token",
+								"sortOrder": 3,
+								"infoTitle": "We recommend using this header",
+								"info": "The Postman-Token header appends a random UUID to every outgoing request. Postman adds this header for API developers to better debug requests sent and to ensure separate requests appear distinct to the receiving server.\n\nYou can remove this header in the app settings.",
+								"allowedToToggle": false,
+								"disableEdit": true,
+								"previewSettingsLink": "Go to settings",
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "8a48c7b5-6656-4643-902a-0a71268e3091"
+							},
+							{
+								"name": "host",
+								"sortOrder": 6,
+								"infoTitle": "We recommend using this header",
+								"info": "The Host header is added to identify the domain name for which a request is being sent to the server. This header is implicitly sent by every HTTP client.\n\nYou can remove the header or enter a new one with a different value. It is most likely that without this header, your request will return an HTTP 400 error.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"system": true,
+								"type": "text",
+								"uuid": "e514acf6-9abd-4ba6-8048-9c214b5cc280"
+							},
+							{
+								"name": "user-agent",
+								"sortOrder": 7,
+								"infoTitle": "We recommend using this header",
+								"info": "The User-Agent header is added to help the server identify Postman as the HTTP requesting application or client.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"system": true,
+								"type": "text",
+								"uuid": "f511ce09-4867-4a46-9765-0fdff2269ba5"
+							},
+							{
+								"name": "accept",
+								"sortOrder": 8,
+								"infoTitle": "We recommend using this header",
+								"info": "The \"Accept: */*\" header is added to tell the server that Postman can understand and process all forms of response content types.\n\nIt is recommended that this header be sent, but you can remove the header or enter a new one with a different value.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept",
+								"value": "*/*",
+								"system": true,
+								"type": "text",
+								"uuid": "ea1884d6-86c9-4b10-899c-f05f9fc32a84"
+							},
+							{
+								"name": "accept-encoding",
+								"sortOrder": 9,
+								"infoTitle": "We recommend using this header",
+								"info": "The Accept-Encoding header is added to indicate to the server that Postman HTTP client supports a defined list of content-encoding or compression algorithms as response.\n\nYou can remove the header or enter a new one with a different value. Doing that may not accurately render the response within the app.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"system": true,
+								"type": "text",
+								"uuid": "8cfb36c9-3930-4719-a027-15a4a0bd6217"
+							},
+							{
+								"name": "connection",
+								"sortOrder": 10,
+								"infoTitle": "We recommend using this header",
+								"info": "Postman added the Connection header to indicate the server to keep the underlying network connection open once the current response is received. This allows Postman to reuse the same connection for faster response times in subsequent requests to the same server.\n\nYou can remove this header or enter a new one with a different value, such as `Connection: Close` to control this behaviour.",
+								"allowedToToggle": true,
+								"disableEdit": true,
+								"key": "Connection",
+								"value": "keep-alive",
+								"system": true,
+								"type": "text",
+								"uuid": "a30a9f54-61d4-4ace-9079-460de859d7b0"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzE2MjE4Mzc0LCJleHAiOjE3MTYyMjE5NzR9.c4KNkPdr3YOLgQxa7hQseJeQQgIbmM5JqliIF3y_6AI",
+								"type": "text",
+								"uuid": "343f40dc-7742-4e6f-9949-4cb05e95779a",
+								"id": 0
+							}
+						],
+						"url": {
+							"raw": "https://deviapriyanti.sipelantis.com/api/products/5",
+							"protocol": "https",
+							"host": [
+								"deviapriyanti",
+								"sipelantis",
+								"com"
+							],
+							"path": [
+								"api",
+								"products",
+								"5"
+							]
+						},
+						"description": "menghapus data produk dengan id yang dipilih"
+					},
+					"response": []
+				}
+			],
+			"description": "mengelola data produk"
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"bubu\",\r\n    \"email\":\"bubu@gmail.com\",\r\n    \"password\": \"bubu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deviapriyanti.sipelantis.com/api/register",
+					"protocol": "https",
+					"host": [
+						"deviapriyanti",
+						"sipelantis",
+						"com"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "registrasi akun"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://deviapriyanti.sipelantis.com/api/login",
+					"protocol": "https",
+					"host": [
+						"deviapriyanti",
+						"sipelantis",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register with oauth google",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "redirect_uri",
+							"value": "https://deviapriyanti.sipelantis.com/aouth/register/callback",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "clientSecret",
+							"value": "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",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "296810909588-oc5c304e65dnf0s4scfp60oqjqpi6ok8.apps.googleusercontent.com",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://accounts.google.com/o/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "https://www.googleapis.com/auth/userinfo.email",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/auth",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Devi Token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/oauth/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"oauth",
+						"register"
+					]
+				},
+				"description": "registrasi akun baru menggunakan google oauth (install laravel socialite)"
+			},
+			"response": []
+		}
+	]
+}
